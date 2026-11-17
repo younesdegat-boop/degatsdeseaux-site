@@ -174,6 +174,15 @@
     .review-box p{opacity:.9}
     .review-box .btn{margin-top:22px}
 
+    .reviews{background:#fff}
+    .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px;text-align:left}
+    .review{background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px}
+    .review .stars{color:#ffb400;font-size:15px}
+    .review blockquote{margin:0;color:var(--text,#1d2939);font-size:15px;line-height:1.6;flex:1}
+    .review .who{font-weight:600;color:var(--blue-deep);font-size:14px}
+    .review .who span{display:block;font-weight:400;color:var(--muted);font-size:13px}
+    @media (max-width:900px){.reviews-grid{grid-template-columns:1fr}}
+
     /* Zones */
     .zones{background:var(--bg-soft)}
     .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
@@ -390,6 +399,33 @@
         <p>Beoordeling van onze klanten op Google</p>
         <a class="btn btn-ghost" href="https://www.google.com/search?q=degatsdeseaux" target="_blank" rel="noopener"><i class="fab fa-google"></i> Lees de reviews</a>
       </div>
+    </div>
+  </section>
+
+  <!-- Avis -->
+  <section class="reviews" id="avis">
+    <div class="container center">
+      <span class="eyebrow">Klantenreviews</span>
+      <h2>Wat onze klanten zeggen</h2>
+      <p class="lead">Score van 5,0/5 op Google.</p>
+      <div class="reviews-grid">
+        <figure class="review">
+          <div class="stars" aria-label="5 étoiles sur 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <blockquote>«&nbsp;Nous avions un problème de WC bouché, avec une évacuation d’eau totalement impossible. Le technicien est intervenu rapidement et a trouvé la solution avec beaucoup de compétence.&nbsp;»</blockquote>
+          <figcaption class="who">Anissa T.<span>Google-review (FR) · Schaerbeek</span></figcaption>
+        </figure>
+        <figure class="review">
+          <div class="stars" aria-label="5 étoiles sur 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <blockquote>«&nbsp;Problème de WC bouché, impossible de faire évacuer l’eau. Le technicien a trouvé la solution rapidement. Très sympathique et surtout très compétent.&nbsp;»</blockquote>
+          <figcaption class="who">Asma B.<span>Google-review (FR) · Schaerbeek</span></figcaption>
+        </figure>
+        <figure class="review">
+          <div class="stars" aria-label="5 étoiles sur 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <blockquote>«&nbsp;J’avais un gros problème d’égout bouché, avec de mauvaises odeurs et de l’eau qui remontait. Très satisfait du service&nbsp;!&nbsp;»</blockquote>
+          <figcaption class="who">Samira A.<span>Google-review (FR) · Molenbeek-Saint-Jean</span></figcaption>
+        </figure>
+      </div>
+      <p style="margin-top:28px"><a class="btn btn-ghost" href="https://www.google.com/search?q=degatsdeseaux" target="_blank" rel="noopener"><i class="fab fa-google"></i> Alle reviews op Google</a></p>
     </div>
   </section>
 
