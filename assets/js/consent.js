@@ -34,6 +34,18 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", loadGA); else loadGA();
 
+  // Événements clés pour Analytics : clic sur le téléphone, WhatsApp, formulaire envoyé
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[href]");
+    if (!a) return;
+    var h = a.getAttribute("href") || "";
+    if (h.indexOf("tel:") === 0) gtag("event", "clic_telephone", { link_url: h, page_location: location.href });
+    else if (/wa\.me|whatsapp/i.test(h)) gtag("event", "clic_whatsapp", { link_url: h });
+  }, true);
+  window.addEventListener("message", function (e) {
+    if (typeof e.data === "string" && e.data.indexOf("Tally.FormSubmitted") !== -1) gtag("event", "formulaire_envoye");
+  });
+
   function loadClarity() {
     if (window.clarity && window.clarity.loaded) return;
     (function (c, l, a, r, i, t, y) {
