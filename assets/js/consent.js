@@ -20,6 +20,20 @@
     wait_for_update: 500
   });
 
+  // Google Analytics 4 (respecte le Consent Mode ci-dessus)
+  var GA_ID = "G-GDLR9PPD9E";
+  function loadGA() {
+    if (window.__ddeGA) return; window.__ddeGA = true;
+    if (!document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
+      var s = document.createElement("script"); s.async = 1;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+      document.head.appendChild(s);
+      gtag("js", new Date());
+    }
+    gtag("config", GA_ID);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", loadGA); else loadGA();
+
   function loadClarity() {
     if (window.clarity && window.clarity.loaded) return;
     (function (c, l, a, r, i, t, y) {
