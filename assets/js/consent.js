@@ -99,6 +99,18 @@
       '<button type="button" id="dde-no" style="border:1px solid #d1d5db;background:#fff;color:#374151;border-radius:999px;padding:8px 16px;font:inherit;cursor:pointer">' + x.no + '</button>' +
       '<button type="button" id="dde-ok" style="border:0;background:#0056b3;color:#fff;border-radius:999px;padding:8px 18px;font:inherit;font-weight:600;cursor:pointer">' + x.ok + '</button></div>';
     document.body.appendChild(d);
+    // Ne jamais cacher le bouton d'appel : on place le bandeau au-dessus de la barre "Appeler" / du bouton flottant
+    try {
+      var off = 0;
+      [".callbar", ".float-call"].forEach(function (sel) {
+        var el = document.querySelector(sel);
+        if (el && getComputedStyle(el).display !== "none") {
+          var r = el.getBoundingClientRect();
+          off = Math.max(off, window.innerHeight - r.top);
+        }
+      });
+      if (off > 0) d.style.bottom = (off + 8) + "px";
+    } catch (e) {}
     document.getElementById("dde-ok").onclick = accept;
     document.getElementById("dde-no").onclick = refuse;
   }
